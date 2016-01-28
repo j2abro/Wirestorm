@@ -69,7 +69,7 @@
         <!--SecondVC-->
         <scene sceneID="BbH-lA-JBc">
             <objects>
-                <viewController id="Es8-sK-Yab" userLabel="SecondVC" sceneMemberID="viewController">
+                <viewController id="Es8-sK-Yab" userLabel="SecondVC" customClass="SecondVC" customModule="Wirestorm" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h8J-s4-Ine"/>
                         <viewControllerLayoutGuide type="bottom" id="lld-K3-uri"/>
@@ -77,8 +77,24 @@
                     <view key="view" contentMode="scaleToFill" id="gWU-Ec-kDi">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uob-ib-X7P">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="Ctk-se-1vE"/>
+                                    <constraint firstAttribute="height" constant="200" id="v2O-P5-AFi"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uob-ib-X7P" firstAttribute="centerY" secondItem="gWU-Ec-kDi" secondAttribute="centerY" id="qv0-Hx-TKY"/>
+                            <constraint firstItem="uob-ib-X7P" firstAttribute="centerX" secondItem="gWU-Ec-kDi" secondAttribute="centerX" id="tmH-VU-DLT"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mainImageView" destination="uob-ib-X7P" id="DjW-Jz-8tn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZAf-a8-bO8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -19,14 +19,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let cellIdentifier = "basicCell"
     
+    var detailNameString = ""
+    var detailImageString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tblView.delegate = self
         tblView.dataSource = self
-        
-        var detailName = ""
-        var dtailImage = ""
         
         let url = "https://s3-us-west-2.amazonaws.com/wirestorm/assets/response.json"
         
@@ -55,7 +55,18 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        self.detailImageString = tableList[indexPath.row].lrgpic
         self.performSegueWithIdentifier("showSecond", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "showSecond") {
+            
+            let vc = segue.destinationViewController as! SecondVC
+            
+            vc.imageUrl = detailImageString
+        }
     }
     
     func loadTable(url: String) {
